@@ -19,7 +19,7 @@ Alem do Javascript tambem é utilizada a biblioteca readline para que o usuario 
 ## Requisitos
 
 - Node.js instalado na máquina.
-Caso nao tiver o Node.js instalado clique [aqui](https://nodejs.org/).
+Caso não tiver o Node.js instalado clique [aqui](https://nodejs.org/) para baixá-lo.
 
 
 ## Instruções de instalação e execução
