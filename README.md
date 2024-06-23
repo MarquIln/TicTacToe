@@ -27,8 +27,8 @@ Caso não tiver o Node.js instalado clique [aqui](https://nodejs.org/) para baix
 1. Clone o repositório:
 
     ```bash
-    git clone https://github.com/seu-usuario/jogo-da-velha.git
-    cd jogo-da-velha
+    git clone [https://github.com/MarquIln/TicTacToe.git]
+    cd TicTacToe
     ```
 
 2. Instale as dependências:
