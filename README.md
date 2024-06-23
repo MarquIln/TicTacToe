@@ -12,7 +12,7 @@ Alem do Javascript tambem é utilizada a biblioteca readline para que o usuario 
 5. Selecione se voce vai jogar contra o computador ou contra uma outra pessoa
 6. Insira os nomes dos jogadores quando solicitado.  
     6.1. Se voce escolheu jogar em 2 jogares. Alternadamente, insira as jogadas no formato "linha e coluna" (por exemplo, "0 0" para a posicao superior esquerda).  
-    6.2. Se voce escolheu jogar sozinho. Faca a primeira jogada e apos, o computador vai pensar qual a melhor estrategia contra voce e selecionar a posicao que ele queira, e assim sucessivamente
+    6.2. Se voce escolheu jogar sozinho. Faça a primeira jogada e após, o computador vai pensar qual a melhor estratégia contra voce e selecionar a posição que ele queira, e assim sucessivamente até alguem vencer ou ter um empate
 7. O jogo só terminará até que haja um vencedor ou um empate.
 8. Após o fim do jogo, você será perguntado se deseja jogar novamente.
 
