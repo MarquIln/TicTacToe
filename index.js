@@ -44,10 +44,12 @@ function startGame() {
 
 function choosePlay() {
     printBoard()
+
     if (isBotTurn()) {
         return botMove()
     }
-    rl.question(`\n Jogador ${currentPlayer === 'X' ? playerXName : playerOName}, insira sua jogada (linha e coluna): `, input => {
+
+    rl.question(`Jogador ${currentPlayer === 'X' ? playerXName : playerOName}, insira sua jogada (linha e coluna): `, input => {
         const trimmedInput = input.trim()
         const inputs = trimmedInput.split(' ').map(Number)
         if (inputs.length === 2) {
@@ -65,6 +67,7 @@ function choosePlay() {
 }
 
 function makePlay(row, col) {
+
     if (board[row][col] !== ' ') {
         return console.log('\n Posicao no board já preenchida, escolha outra posicao! \n')
     }
