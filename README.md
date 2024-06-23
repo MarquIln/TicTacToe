@@ -6,7 +6,7 @@ Alem do Javascript tambem é utilizada a biblioteca readline para que o usuario 
 ## Como jogar
 
 1. Clone o repositório.
-2. Navegue até o diretório do projeto.
+2. Navegue até a pasta src no diretorio do projeto.
 3. Instale as dependências.
 4. Execute o script para iniciar o jogo.
 5. Selecione se voce vai jogar contra o computador ou contra uma outra pessoa
