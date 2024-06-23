@@ -58,16 +58,15 @@ function choosePlay() {
                 if (makePlay(row, col)) {
                     return resetGame()
                 }
-                return
             }
+        } 
+        if (inputs.length !== 2) {
+            console.log('\n Posicao no board invalida, escolha outra posicao! \n')
         }
-        console.log('\n Posicao no board invalida, escolha outra posicao! \n')
-        choosePlay()
     })
 }
 
 function makePlay(row, col) {
-
     if (board[row][col] !== ' ') {
         return console.log('\n Posicao no board já preenchida, escolha outra posicao! \n')
     }
@@ -104,6 +103,7 @@ function resetGame() {
             rl.close()
         })
     }
+
     rl.question('Você deseja jogar novamente? (s/n) ', (answer) => {
         if (answer.trim().toLowerCase() === 's') {
             resetBoard()
@@ -122,9 +122,8 @@ function isBotTurn() {
     return gameMode === '2' && currentPlayer === 'O'
 }
 
-
 function botMove() {
-    console.log('O computador está pensando...')
+    console.log('\n O computador está pensando...')
     setTimeout(() => {
         const bestMove = minimax(board, 'O')
         makePlay(Math.floor(bestMove.index / 3), bestMove.index % 3)
