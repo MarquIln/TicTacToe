@@ -66,4 +66,4 @@ function getRowColFromIndex(index) {
 
 export function isBotTurn() {
     return gameMode === '1' && currentPlayer === 'O'
-  }
+}

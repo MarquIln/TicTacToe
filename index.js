@@ -1,5 +1,5 @@
 import { createInterface } from 'readline'
-import { board, printBoard, resetBoard } from './board.js'
+import { board, printBoard, resetBoard } from './src/board.js'
 import { minimax } from './bot.js'
 import { getWinner } from './utils.js'
 
@@ -13,7 +13,7 @@ const rl = createInterface({
     output: process.stdout
 })
 
-function promptPlayerNames() {
+function startGame() {
     rl.question('Escolha o modo de jogo:\n1 - Contra outro jogador\n2 - Contra o computador\n', (mode) => {
         gameMode = mode.trim()
 
@@ -22,7 +22,7 @@ function promptPlayerNames() {
                 playerXName = nameX.trim()
                 rl.question('Digite o seu nome 2 Jogador: ', nameO => {
                     playerOName = nameO.trim()
-                    promptMove()
+                    choosePlay()
                 })
             })
         }
@@ -31,21 +31,21 @@ function promptPlayerNames() {
             rl.question('Digite o seu nome Jogador: ', nameX => {
                 playerXName = nameX.trim()
                 playerOName = 'Computador'
-                promptMove()
+                choosePlay()
             })
         }
 
         if (mode.trim() !== '1' && mode.trim() !== '2') {
             console.log('Escolha inválida. Por favor, escolha 1 ou 2.')
-            promptPlayerNames()
+            startGame()
         }
     })
 }
 
-function promptMove() {
+function choosePlay() {
     printBoard()
     if (isBotTurn()) {
-        performBotMove()
+        return performBotMove()
     }
     rl.question(`\n Jogador ${currentPlayer === 'X' ? playerXName : playerOName}, insira sua jogada (linha e coluna): `, input => {
         const trimmedInput = input.trim()
@@ -53,18 +53,18 @@ function promptMove() {
         if (inputs.length === 2) {
             const [row, col] = inputs
             if (row >= 0 && row < 3 && col >= 0 && col < 3) {
-                if (makeMove(row, col)) {
+                if (makePlay(row, col)) {
                     return resetGame()
                 }
-                return promptMove()
+                return choosePlay()
             }
         }
         console.log('\n Posicao no board invalida, escolha outra posicao! \n')
-        promptMove()
+        choosePlay()
     })
 }
 
-function makeMove(row, col) {
+function makePlay(row, col) {
     if (board[row][col] !== ' ') {
         return console.log('\n Posicao no board já preenchida, escolha outra posicao! \n')
     }
@@ -73,8 +73,7 @@ function makeMove(row, col) {
 
     if (getWinner(board) === currentPlayer) {
         printBoard()
-        console.log(`Jogador ${currentPlayer === 'X' ? playerXName : playerOName} venceu!`)
-        return true
+        return console.log(`Jogador ${currentPlayer === 'X' ? playerXName : playerOName} venceu!`)
     }
 
     if (checkDraw()) {
@@ -86,12 +85,8 @@ function makeMove(row, col) {
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X'
 
     if (!isBotTurn()) {
-        promptMove()
+        choosePlay()
     }
-}
-
-function checkDraw() {
-    return board.flat().every(cell => cell !== ' ')
 }
 
 function resetGame() {
@@ -100,7 +95,7 @@ function resetGame() {
             if (answer.trim().toLowerCase() === 's') {
                 resetBoard()
                 currentPlayer = 'X'
-                return promptMove()
+                return choosePlay()
             }
             rl.close()
         })
@@ -109,19 +104,27 @@ function resetGame() {
         if (answer.trim().toLowerCase() === 's') {
             resetBoard()
             currentPlayer = 'X'
-            return promptMove()
+            return choosePlay()
         }
         rl.close()
     })
+}
+
+function checkDraw() {
+    return board.flat().every(cell => cell !== ' ')
 }
 
 function isBotTurn() {
     return gameMode === '2' && currentPlayer === 'O'
 }
 
+
 function performBotMove() {
-    const bestMove = minimax(board, 'O')
-    makeMove(Math.floor(bestMove.index / 3), bestMove.index % 3)
+    console.log('O computador está pensando...')
+    setTimeout(() => {
+        const bestMove = minimax(board, 'O')
+        makePlay(Math.floor(bestMove.index / 3), bestMove.index % 3)
+    }, 2000)
 }
 
-promptPlayerNames()
+startGame()
