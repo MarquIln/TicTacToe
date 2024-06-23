@@ -20,8 +20,6 @@ function promptPlayerNames() {
     })
 }
 
-promptPlayerNames()
-
 function promptMove() {
     printBoard()
     rl.question(`Jogador ${currentPlayer === 'X' ? playerXName : playerOName}, insira sua jogada (linha e coluna): `, input => {
@@ -95,4 +93,4 @@ function resetGame() {
     })
 }
 
-promptMove()
+promptPlayerNames()
