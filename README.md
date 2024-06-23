@@ -27,7 +27,7 @@ Caso não tiver o Node.js instalado clique [aqui](https://nodejs.org/) para baix
 1. Clone o repositório:
 
     ```bash
-    git clone [https://github.com/MarquIln/TicTacToe.git]
+    git clone https://github.com/MarquIln/TicTacToe.git
     cd TicTacToe
     ```
 
