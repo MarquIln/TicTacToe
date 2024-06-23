@@ -63,7 +63,3 @@ function getAvailableSpots(board) {
 function getRowColFromIndex(index) {
     return [Math.floor(index / 3), index % 3]
 }
-
-export function isBotTurn() {
-    return gameMode === '1' && currentPlayer === 'O'
-}
