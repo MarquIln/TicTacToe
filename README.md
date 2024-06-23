@@ -11,7 +11,7 @@ Alem do Javascript tambem é utilizada a biblioteca readline para que o usuario 
 3. Instale as dependências.
 4. Execute o script para iniciar o jogo.
 5. Insira os nomes dos dois jogadores quando solicitado.
-6. Alternadamente, insira as jogadas no formato "linha e coluna" (por exemplo, "0 0" para a posicao superior esquerda).
+6. Alternadamente, os jogadores escolhem suas jogadas no formato "linha e coluna" (por exemplo, "0 0" para a posicao superior esquerda).
 7. O jogo só terminará até que haja um vencedor ou um empate.
 8. Após o fim do jogo, você será perguntado se deseja jogar novamente.
 
