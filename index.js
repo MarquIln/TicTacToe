@@ -2,13 +2,25 @@ import { createInterface } from 'readline'
 import { board, printBoard, resetBoard } from './board.js'
 
 let currentPlayer = 'X'
-let playerXName = '1'
-let playerOName = '2'
+let playerXName = ''
+let playerOName = ''
 
 const rl = createInterface({
     input: process.stdin,
     output: process.stdout
 })
+
+function promptPlayerNames() {
+    rl.question('Digite o nome do jogador X: ', nameX => {
+        playerXName = nameX.trim()
+        rl.question('Digite o nome do jogador O: ', nameO => {
+            playerOName = nameO.trim()
+            promptMove()
+        })
+    })
+}
+
+promptPlayerNames()
 
 function promptMove() {
     printBoard()
