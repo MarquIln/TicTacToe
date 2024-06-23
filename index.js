@@ -1,5 +1,5 @@
 import { createInterface } from 'readline'
-import { board, printBoard, resetBoard } from './src/board.js'
+import { board, printBoard, resetBoard } from './board.js'
 import { minimax } from './bot.js'
 import { getWinner } from './utils.js'
 
@@ -45,7 +45,7 @@ function startGame() {
 function choosePlay() {
     printBoard()
     if (isBotTurn()) {
-        return performBotMove()
+        return botMove()
     }
     rl.question(`\n Jogador ${currentPlayer === 'X' ? playerXName : playerOName}, insira sua jogada (linha e coluna): `, input => {
         const trimmedInput = input.trim()
@@ -73,7 +73,8 @@ function makePlay(row, col) {
 
     if (getWinner(board) === currentPlayer) {
         printBoard()
-        return console.log(`Jogador ${currentPlayer === 'X' ? playerXName : playerOName} venceu!`)
+        console.log(`${currentPlayer === 'X' ? playerXName : playerOName} venceu!`)
+        return resetGame()
     }
 
     if (checkDraw()) {
@@ -119,7 +120,7 @@ function isBotTurn() {
 }
 
 
-function performBotMove() {
+function botMove() {
     console.log('O computador está pensando...')
     setTimeout(() => {
         const bestMove = minimax(board, 'O')
