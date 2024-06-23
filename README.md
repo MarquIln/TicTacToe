@@ -1,7 +1,7 @@
 # Jogo da Velha (Tic-Tac-Toe)
 
 Este é um Jogo da Velha feito em Javascript que funciona em linha de comando, no terminal. O jogo consiste em duas pessoas jogarem uma contra a outra, o jogo comeca após os 2 usuarios escolherem seus nomes,
-no jogo da velha, vence quem conseguir uma sequencia de 3 simbolos iguais na horizontal, vertical ou diagonal primeiro, vence a partida o jogo é jogado em um tabuleiro 3x3.
+no jogo da velha, vence quem conseguir uma sequencia de 3 simbolos iguais na horizontal, vertical ou diagonal primeiro, o jogo é jogado em um tabuleiro 3x3.
 Alem do Javascript tambem é utilizada a biblioteca readline para que o usuario possa interagir com o seu teclado no terminal.
 
 ## Como jogar
