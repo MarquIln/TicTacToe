@@ -2,8 +2,8 @@ import { createInterface } from 'readline'
 import { board, printBoard, resetBoard } from './board.js'
 
 let currentPlayer = 'X'
-let playerXName = ''
-let playerOName = ''
+let playerXName
+let playerOName
 
 const rl = createInterface({
     input: process.stdin,
@@ -11,9 +11,9 @@ const rl = createInterface({
 })
 
 function promptPlayerNames() {
-    rl.question('Digite o nome do jogador X: ', nameX => {
+    rl.question('Digite o seu nome 1 Jogador: ', nameX => {
         playerXName = nameX.trim()
-        rl.question('Digite o nome do jogador O: ', nameO => {
+        rl.question('Digite o seu nome 2 Jogador: ', nameO => {
             playerOName = nameO.trim()
             promptMove()
         })
@@ -34,14 +34,14 @@ function promptMove() {
                 return promptMove()
             }
         }
-        console.log('Entrada inválida, tente novamente.')
+        console.log('\n Posicao no board invalida, escolha outra posicao! \n')
         promptMove()
     })
 }
 
 function makeMove(row, col) {
     if (board[row][col] !== ' ') {
-        console.log('Movimento inválido, tente novamente.')
+        console.log('\n Posicao no board já preenchida, escolha outra posicao! \n')
         return false
     }
 
@@ -83,7 +83,7 @@ function checkDraw() {
 }
 
 function resetGame() {
-    rl.question('Você deseja jogar novamente? (s/n) ', (answer) => {
+    rl.question('Vocês desejam jogar novamente? (s/n) ', (answer) => {
         if (answer.trim().toLowerCase() === 's') {
             resetBoard()
             currentPlayer = 'X'
