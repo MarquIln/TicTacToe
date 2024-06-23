@@ -58,7 +58,7 @@ function choosePlay() {
                 if (makePlay(row, col)) {
                     return resetGame()
                 }
-                return choosePlay()
+                return
             }
         }
         console.log('\n Posicao no board invalida, escolha outra posicao! \n')
